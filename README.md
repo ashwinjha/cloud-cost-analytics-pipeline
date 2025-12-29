@@ -18,7 +18,8 @@ The goal is to validate **production-style thinking** using a minimal local setu
 
 ## Input Data (Raw Events)
 
-Simulated billing events with the following schema:
+Simulated billing events with the following schema: 
+
 event_id
 event_date
 account_id
@@ -49,9 +50,11 @@ Raw data is treated as **immutable**.
 
 ### Aggregation
 Daily grain aggregation:
+
 event_date + service_name + project_id
 
 Metric:
+
 total_cost_usd
 
 
