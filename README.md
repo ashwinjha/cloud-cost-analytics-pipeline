@@ -65,11 +65,17 @@ Raw data is treated as **immutable**.
 ### Aggregation
 Daily grain aggregation:
 
+```text
 event_date + service_name + project_id
+```
+
 
 Metric:
 
+```text
 total_cost_usd
+```
+
 
 This results in a curated dataset that represents
 **daily service-level cost per project**.
