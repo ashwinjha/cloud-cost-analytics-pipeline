@@ -80,10 +80,22 @@ The same logic is **format-agnostic** and runs on Parquet in production environm
 
 ---------------------------------------------------------------------------------------
 
+## Implementation Notes
+
+- Raw ingestion and curated transformations were implemented using Spark DataFrames.
+- Due to local Windows filesystem constraints, Spark write operations were not persisted.
+- Pipeline correctness was validated via deterministic recomputation, backfill reruns, and data quality checks.
+- The transformation logic is storage-agnostic and runs unchanged on Parquet-backed tables in production environments.
+
+------------------------------------------------------------------------------------
+
 ## Key Takeaways
 - Immutable raw data  
 - Deterministic recomputation  
 - Late data and backfill support  
-- Production-oriented Spark transformations  
+- Production-oriented Spark transformations
+  
+------------------------------------------------------------------------------------
+  
 
 
