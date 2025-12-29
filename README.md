@@ -78,10 +78,10 @@ The pipeline fails fast if:
 - Local execution (no cloud dependencies)  
 
 **Note:**  
-Raw ingestion and curated transformations were implemented using Spark DataFrames.
-For local Windows development, transformations were validated in-memory due to filesystem constraints.  
-The same logic is **format-agnostic** and runs on Parquet in production environments. 
-Pipeline correctness was validated via deterministic recomputation, backfill reruns, and data quality checks.
+- Raw ingestion and curated transformations were implemented using Spark DataFrames.     
+- For local Windows development, transformations were validated in-memory due to filesystem constraints.    
+- The same logic is **format-agnostic** and runs on Parquet in production environments.    
+- Pipeline correctness was validated via deterministic recomputation, backfill reruns, and data quality checks.  
 
 
 ------------------------------------------------------------------------------------
