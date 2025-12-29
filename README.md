@@ -128,16 +128,21 @@ cost analysis, trend monitoring, and downstream reporting.
 
 ## Architecture Overview  
 
+## Architecture Overview
+
+
+```text
 Raw CSV Events
       |
       v
 Spark (PySpark)
-- Deduplication (latest ingestion wins)
-- Daily aggregation
-- Data quality checks
+  - Deduplication (latest ingestion wins)
+  - Daily aggregation
+  - Data quality checks
       |
       v
 Curated Daily Cost Dataset
+```
 
 
 -------------------------------------------------------------------------------------
