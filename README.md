@@ -34,13 +34,14 @@ without relying on proprietary or company-specific datasets.
 
 Simulated billing events with the following schema: 
 
+```text
 event_id   
 event_date  
 account_id  
 service_name  
 cost_usd  
 ingestion_date  
-
+```
 
 
 ### Characteristics intentionally simulated
