@@ -1,0 +1,16 @@
+# Pipeline configuration (placeholder)
+
+input_paths:
+  - data/billing_events_day1.csv
+  - data/billing_events_day2_late.csv
+  - data/billing_events_day1_backfill.csv
+
+aggregation_grain:
+  - event_date
+  - service_name
+  - project_id
+
+metrics:
+  - total_cost_usd
+
+execution_mode: local
