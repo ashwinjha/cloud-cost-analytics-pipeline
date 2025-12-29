@@ -1,16 +1,26 @@
-spark = SparkSession.builder \
-    .appName("CloudCostAnalytics") \
-    .master("local[*]") \
-    .getOrCreate()
+from pyspark.sql import SparkSession
 
-# 2. Read raw CSVs
+def create_spark_session():
+    return (
+        SparkSession.builder
+        .appName("CloudCostAnalytics")
+        .master("local[*]")
+        .getOrCreate()
+    )
+
+
+def read_raw_events(spark, paths):
     """
     Reads raw billing event CSV files.
     Raw data is treated as immutable.
     """
-day1_df = spark.read.option("header", True).csv("../data/billing_events_day1.csv")
-day2_df = spark.read.option("header", True).csv("../data/billing_events_day2_late.csv")
-backfill_df = spark.read.option("header", True).csv("../data/billing_events_day1_backfill.csv")
+    dfs = []
+    for path in paths:
+        df = spark.read.option("header", True).csv(path)
+        dfs.append(df)
 
+    raw_df = dfs[0]
+    for df in dfs[1:]:
+        raw_df = raw_df.unionByName(df)
 
-print("Reading done")
+    return raw_df
