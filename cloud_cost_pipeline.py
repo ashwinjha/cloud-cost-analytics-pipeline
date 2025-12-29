@@ -16,13 +16,13 @@ backfill_df = spark.read.option("header", True).csv("../data/billing_events_day1
 
 print("Reading done")
 
-# 3. Append raw data (immutable)
+# 3. Append raw data 
 raw_df = day1_df.unionByName(day2_df).unionByName(backfill_df)
 
 
 print("Combine done")
 
-# 4. Deduplicate (latest ingestion_date wins)
+# 4. Deduplicate
 window_spec = Window.partitionBy("event_id").orderBy(col("ingestion_date").desc())
 
 dedup_df = (
@@ -51,7 +51,7 @@ daily_df = (
 
 print("Aggregation done")
 
-# 6. SHOW RESULT (this is your proof)
+# 6. SHOW RESULT 
 daily_df.show(truncate=False)
 
 print("Running data quality checks...")
@@ -80,3 +80,4 @@ print("All data quality checks passed")
 
 
 spark.stop()
+
