@@ -20,13 +20,13 @@ The goal is to validate **production-style thinking** using a minimal local setu
 
 Simulated billing events with the following schema: 
 
-event_id
-event_date
-account_id
-project_id
-service_name
-cost_usd
-ingestion_date
+event_id 
+event_date 
+account_id 
+project_id 
+service_name 
+cost_usd 
+ingestion_date 
 
 
 ### Characteristics intentionally simulated
@@ -78,17 +78,11 @@ The pipeline fails fast if:
 - Local execution (no cloud dependencies)  
 
 **Note:**  
+Raw ingestion and curated transformations were implemented using Spark DataFrames.
 For local Windows development, transformations were validated in-memory due to filesystem constraints.  
-The same logic is **format-agnostic** and runs on Parquet in production environments.
+The same logic is **format-agnostic** and runs on Parquet in production environments. 
+Pipeline correctness was validated via deterministic recomputation, backfill reruns, and data quality checks.
 
----------------------------------------------------------------------------------------
-
-## Implementation Notes
-
-- Raw ingestion and curated transformations were implemented using Spark DataFrames.
-- Due to local Windows filesystem constraints, Spark write operations were not persisted.
-- Pipeline correctness was validated via deterministic recomputation, backfill reruns, and data quality checks.
-- The transformation logic is storage-agnostic and runs unchanged on Parquet-backed tables in production environments.
 
 ------------------------------------------------------------------------------------
 
