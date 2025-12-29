@@ -9,13 +9,9 @@ The pipeline is designed to answer questions such as:
 - How much did each service cost per project per day?  
 - How do corrected or late-arriving billing events impact historical cost reports?     
 
-The focus is on demonstrating **production-style data engineering fundamentals**:    
-immutable raw ingestion,  
-late data handling,   
-deduplication,   
-daily aggregation,
-backfills,   
-and data quality checks — using a minimal local setup.
+The focus is on demonstrating **production-style data engineering fundamentals**:
+immutable raw ingestion, late data handling, deduplication, daily aggregation,
+backfills, and data quality checks — using a minimal local setup.
 
 ---------------------------------------------------------------------------------------
 
@@ -132,16 +128,17 @@ cost analysis, trend monitoring, and downstream reporting.
 
 ## Architecture Overview  
 
-Raw CSV Events    
-      |    
-      v   
+Raw CSV Events
+      |
+      v
 Spark (PySpark)
-- Deduplication (latest ingestion wins)   
-- Daily aggregation   
-- Data quality checks   
-      |    
-      v     
+- Deduplication (latest ingestion wins)
+- Daily aggregation
+- Data quality checks
+      |
+      v
 Curated Daily Cost Dataset
+
 
 
 -------------------------------------------------------------------------------------
