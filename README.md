@@ -20,13 +20,13 @@ The goal is to validate **production-style thinking** using a minimal local setu
 
 Simulated billing events with the following schema: 
 
-event_id 
-event_date 
-account_id 
-project_id 
-service_name 
-cost_usd 
-ingestion_date 
+event_id   
+event_date  
+account_id  
+service_name  
+cost_usd  
+ingestion_date  
+
 
 
 ### Characteristics intentionally simulated
